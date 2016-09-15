@@ -1,6 +1,12 @@
+# Note jinja template variables added by staged-recipes
+# Do not commit statements like: {% set name="some_name" %}
 package:
-  name: taxcalc
-  version: 0.4
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  url: {{ source_url }}
+  sha256: {{ sha256 }}
 
 requirements:
   build:
@@ -8,7 +14,7 @@ requirements:
     - setuptools
     - python
     - numpy ==1.10.4
-    - pandas <=0.18.0
+    - pandas >=0.18.0
     - numba
     - toolz
     - six
@@ -17,10 +23,16 @@ requirements:
     - setuptools
     - python
     - numpy ==1.10.4
-    - pandas <=0.18.0
+    - pandas >=0.18.0
     - numba
     - toolz
     - six
 
 about:
   home: http://www.github.com/OpenSourcePolicyCenter
+  summary: Federal Individual Income Tax Microsimulation Model
+
+extra:
+  recipe-maintainers:
+   - Peter Steinberg
+   - TJ Alumbaugh
